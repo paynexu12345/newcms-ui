@@ -130,6 +130,188 @@
           }
         }
       }
+    },
+    "content": {
+      "root": "projects/content/",
+      "sourceRoot": "projects/content/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/content",
+            "index": "projects/content/src/index.html",
+            "main": "projects/content/src/main.ts",
+            "polyfills": "projects/content/src/polyfills.ts",
+            "tsConfig": "projects/content/tsconfig.app.json",
+            "assets": [
+              "projects/content/src/favicon.ico",
+              "projects/content/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-cms-common/fonts/fonts.css",
+              "project-shared/iconfont/iconfont.css",
+              "project-shared/styles/base.css",
+              "project-shared/styles/breadcrumb.css",
+              "project-shared/styles/button.css",
+              "project-shared/styles/dropdown.css",
+              "project-shared/styles/card.css",
+              "project-shared/styles/form.css",
+              "project-shared/styles/header.css",
+              "project-shared/styles/layout.css",
+              "project-shared/styles/link.css",
+              "project-shared/styles/list.css",
+              "project-shared/styles/nav.css",
+              "project-shared/styles/others.css",
+              "project-shared/styles/sidebar.css",
+              "project-shared/styles/tab.css",
+              "project-shared/styles/table.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/layer/layer.min.js"
+            ],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/content/src/environments/environment.ts",
+                  "with": "projects/content/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "content:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "content:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "content:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/content/src/test.ts",
+            "polyfills": "projects/content/src/polyfills.ts",
+            "tsConfig": "projects/content/tsconfig.spec.json",
+            "karmaConfig": "projects/content/karma.conf.js",
+            "styles": [
+              "projects/content/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/content/src/favicon.ico",
+              "projects/content/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/content/tsconfig.app.json",
+              "projects/content/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "content-e2e": {
+      "root": "projects/content-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/content-e2e/protractor.conf.js",
+            "devServerTarget": "content:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "content:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/content-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "cms-common": {
+      "root": "projects/cms-common",
+      "sourceRoot": "projects/cms-common/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cms-common/tsconfig.lib.json",
+            "project": "projects/cms-common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cms-common/src/test.ts",
+            "tsConfig": "projects/cms-common/tsconfig.spec.json",
+            "karmaConfig": "projects/cms-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cms-common/tsconfig.lib.json",
+              "projects/cms-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "newcms-ui"

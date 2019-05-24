@@ -1,0 +1,104 @@
+<cms-layout1 [config]="cmsLayout1Config">
+  <cms-breadcrumb [config]="breadcrumbConfig"></cms-breadcrumb>
+  <div class="card">
+    <div class="card-header">
+      Tabsets
+    </div>
+    <div class="card-body">
+      <div>
+        <cms-tabset>
+          <cms-tab heading="Tab1">
+            content1
+          </cms-tab>
+          <cms-tab heading="Tab2">
+            content2
+          </cms-tab>
+        </cms-tabset>
+      </div>
+      <div>
+        <cms-tabset customClassNames="sm">
+          <cms-tab heading="Tab1">
+            content1
+          </cms-tab>
+          <cms-tab heading="Tab2">
+            content2
+          </cms-tab>
+        </cms-tabset>
+      </div>
+      <cms-tabset customClassNames="lg">
+        <cms-tab heading="Tab1">
+          content1
+        </cms-tab>
+        <cms-tab heading="Tab2">
+          content2
+        </cms-tab>
+      </cms-tabset>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      Buttons
+    </div>
+    <div class="card-body">
+      <div style="margin-bottom:20px;">
+        <button class="btn main">Button1</button>
+        <button class="btn sub">Button2</button>
+        <button class="btn main" disabled>Button1</button>
+        <button class="btn sub" disabled>Button2</button>
+      </div>
+      <div style="margin-bottom:20px;">
+        <button class="btn main sm">Button1</button>
+        <button class="btn sub sm">Button2</button>
+        <button class="btn main sm" disabled>Button1</button>
+        <button class="btn sub sm" disabled>Button2</button>
+      </div>
+      <div style="margin-bottom:20px;">
+        <button class="btn main lg">Button1</button>
+        <button class="btn sub lg">Button2</button>
+        <button class="btn main lg" disabled>Button1</button>
+        <button class="btn sub lg" disabled>Button2</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      Tables
+      <div class="r">
+        <cms-tabset customClassNames="no-border no-content">
+          <cms-tab heading="Year"></cms-tab>
+          <cms-tab heading="Month"></cms-tab>
+        </cms-tabset>
+        <button class="btn sub" style="vertical-align:middle;">more</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="cms-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Team</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Test program</td>
+            <td>2019/11/05</td>
+            <td>Los Angeles lakers</td>
+            <td><a href="javascript:;" class="link">Delete</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Test program2</td>
+            <td>2019/11/05</td>
+            <td>Los Angeles lakers</td>
+            <td><a href="javascript:;" class="link">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</cms-layout1>

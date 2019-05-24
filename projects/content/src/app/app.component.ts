@@ -11,8 +11,10 @@ import { AuthService } from 'project-shared/services/security/auth.service';
 import { BaseService } from 'project-shared/services/base.service';
 import { SettingsAcquire } from 'project-shared/services/security/settings-acquire';
 import { CMSModule } from 'project-shared/cms-module';
+import { deepCopy } from 'projects/ngx-cms-common/src/lib/utils';
 import { Permission } from 'project-shared/services/content/permission.service';
 import { changePageTitle } from 'project-shared/utils/change-page-title';
+import { CMS_MENUS } from '../config';
 declare var $: any;
 @Component({
   selector: "app-root",
@@ -30,7 +32,7 @@ export class AppComponent implements OnInit {
     public baseService:BaseService,
     public settingsAquire:SettingsAcquire
   ) {}
-  menus:CMSModule[] = [];
+  menus:CMSModule[] = deepCopy(CMS_MENUS);
   
   showLoading_OnNavigationStart() {
     this.router.events.subscribe(event => {
@@ -65,22 +67,8 @@ export class AppComponent implements OnInit {
       }
     },1000)
   }
-  //=============== router animation related =============
-  routerStateCode: string = "active";
-  changeRouterState_OnNavigationEnd() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        if ((this.routerStateCode = "active")) {
-          this.routerStateCode = "inactive";
-        } else {
-          this.routerStateCode = "active";
-        }
-      }
-    });
-  }
 
   setLoggerLevel(){
-    // this.logger.level= environment.logger.level
   }
   subscribeSettingsAcquireSuccess(){
     this.settingsAquire.reqSuccess.subscribe((res:Permission[])=>{
@@ -93,7 +81,6 @@ export class AppComponent implements OnInit {
     this.showLoading_OnNavigationStart();
     this.hideLoading_OnNavigationEnd();
     this.hideMessage_OnNavigationEnd();
-    this.changeRouterState_OnNavigationEnd();
     this.setLoggerLevel();
     this.subscribeSettingsAcquireSuccess();
   }
