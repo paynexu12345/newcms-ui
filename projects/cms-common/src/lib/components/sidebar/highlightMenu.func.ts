@@ -1,5 +1,9 @@
 import { Menu } from "./class";
-export function hightlightMenuByRouter(router, menus: Menu[],fromindex=2): void {
+export function hightlightMenuByRouter(
+  router,
+  menus: Menu[],
+  fromindex = 2
+): void {
   // Relative url matched by router  eg. /content/program/manage
   let url = router.url.split("?")[0].split("#")[0];
 
@@ -9,7 +13,7 @@ export function hightlightMenuByRouter(router, menus: Menu[],fromindex=2): void 
   let node_2 = nodes[Number(fromindex)];
 
   //eg: `manage`
-  let node_3 = nodes[Number(fromindex)+ 1];
+  let node_3 = nodes[Number(fromindex) + 1];
 
   if (node_2 == undefined) {
     return;
@@ -28,9 +32,7 @@ export function hightlightMenuByRouter(router, menus: Menu[],fromindex=2): void 
 
       if (menu.children) {
         menu.children.forEach(menuChildren => {
-          if (
-            menuChildren.nameForUrl.toLowerCase() == node_3.toLowerCase()
-          ) {
+          if (menuChildren.nameForUrl.toLowerCase() == node_3.toLowerCase()) {
             menuChildren.isActive = true;
           } else {
             menuChildren.isActive = false;

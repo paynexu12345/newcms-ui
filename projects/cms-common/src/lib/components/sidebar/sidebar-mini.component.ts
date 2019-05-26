@@ -9,14 +9,13 @@ import {
 import { Router, ActivatedRoute } from "@angular/router";
 import { Menu } from "./class";
 import "rxjs/add/operator/filter";
-import { slideLeftFactory, slideDownFactory } from '../../animations';
+import { slideLeftFactory, slideDownFactory } from "../../animations";
 let slideLeft = slideLeftFactory();
 let slideLeft2 = slideLeftFactory("slideLeft2", ".3s ease-in-out", "-20px");
 let slideDown = slideDownFactory("slideDown", ".5s 0.9s ease-in-out");
 @Component({
   animations: [slideLeft, slideLeft2, slideDown],
   selector: "sidebar-mini",
-  styleUrls: ["./sidebar-mini.component.css"],
   templateUrl: "./sidebar-mini.component.html"
 })
 export class SidebarMiniComponent implements OnInit {

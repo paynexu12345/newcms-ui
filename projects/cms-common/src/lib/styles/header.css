@@ -9,16 +9,20 @@
 .header .logo {
   float: left;
   height: 80px;
-  padding: 20px 30px;
+  padding: 20px 0;
   line-height: 40px;
   color: #fff;
   overflow: hidden;
+  
 }
 .header .logo .iconfont {
   font-size: 36px;
+  padding-left: 30px;
 }
 .header .logo .text {
   font-size: 16px;
+  text-align: center;
+  display: block;
 }
 .header .nav{
   height: 40px;
@@ -37,7 +41,7 @@
   font-size: 14px;
   text-decoration: none;
 }
-.header .nav .item:not(.actiive):hover{
+.header .nav .item:not(.active):hover{
   background: rgba(255, 255, 255, 0.1)
 }
 .header .nav .item.active{

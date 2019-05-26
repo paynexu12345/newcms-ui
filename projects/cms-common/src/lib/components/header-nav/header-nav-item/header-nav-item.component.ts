@@ -5,21 +5,17 @@ import { HeaderNavItem } from "../class";
 
 @Component({
   selector: "header-nav-item",
-  templateUrl: "./header-nav-item.component.html",
-  styleUrls: ["./header-nav-item.component.css"]
+  templateUrl: "./header-nav-item.component.html"
 })
 export class HeaderNavItemComponent implements OnInit {
-  constructor(
-    private _navComp: HeaderNavComponent,
-    public router: Router
-  ) {
+  constructor(private _navComp: HeaderNavComponent, public router: Router) {
     this.navComp = _navComp;
   }
   navComp: HeaderNavComponent;
 
   @Input()
   config: HeaderNavItem;
-  
+
   ngOnInit() {
     this.navComp.addItem(this);
   }

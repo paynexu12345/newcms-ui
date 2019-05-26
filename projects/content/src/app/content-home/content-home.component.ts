@@ -3,6 +3,8 @@ import { Layout1Config } from '../layout/layout.class';
 import { generateActiveNavItem } from '../header/generateActiveNavItem';
 import { NAVITEM_ID_CONTENT } from 'src/app-config';
 import { MENUS_CONTENT } from 'projects/content/content.config';
+import { Breadcrumb } from 'projects/cms-common/src/lib/components/breadcrumb';
+import { PageModeService } from 'projects/cms-common/src/public-api';
 // import { CmsLayout1Config } from 'project-shared/layout/layout.class';
 // import { generateActiveNavItem } from 'project-shared/components/cms-header/cms-header-nav/generateActiveNavItem';
 // import { ID_CONTENT, FROM_INDEX } from 'project-shared/constant';
@@ -12,17 +14,24 @@ import { MENUS_CONTENT } from 'projects/content/content.config';
 
 @Component({
   selector: 'app-content-home',
-  templateUrl: './content-home.component.html',
-  styleUrls: ['./content-home.component.css']
+  templateUrl: './content-home.component.html'
 })
 export class ContentHomeComponent implements OnInit {
 
-  // constructor(public pageModeService:PageModeService) { }
-  // breadcrumbConfig:CmsBreadcrumb[] = [
-  //   {
-  //     name:"Content Home",
-  //   }
-  // ];
+  constructor(public pageModeService:PageModeService) { }
+  breadcrumbConfig:Breadcrumb[] = [
+    {
+      name:"Content",
+      routerLink:"/content/home",
+      queryParams:{
+        param1:"hh",
+        param2:"gg"
+      }
+    },
+    {
+      name:"Content"
+    }
+  ];
   cmsLayout1Config:Layout1Config = {
     header: {
       nav: {

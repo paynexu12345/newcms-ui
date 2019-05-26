@@ -2,16 +2,16 @@ import { Menu } from 'projects/cms-common/src/public-api';
 
 export const MENUS_CONTENT:Menu[] = [
   {
-    name: "Dashboard",
-    nameForUrl: "dashboard",
-    url: "/content/dashboard",
-    isActive: true,
-    icon: "icon-dashboard"
+    name: "Content home",
+    nameForUrl: "home",
+    url: "/content/home",
+    isActive: false,
+    icon: "icon-home"
   },
   {
     name: "Program",
     nameForUrl: "program",
-    icon: "icon-tv-pause",
+    icon: "icon-play",
     isActive: false,
     permissionRels:["*"],
     children: [
@@ -19,35 +19,35 @@ export const MENUS_CONTENT:Menu[] = [
         name: "Library",
         nameForUrl: "library",
         url: "/content/program/library",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/programs*"]
       },
       {
         name: "Upload",
         nameForUrl: "upload",
         url: "/content/program/upload",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/programs*"]
       },
       {
         name: "Category",
         nameForUrl: "category",
         url: "/content/program/category",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/categories*"]
       },
       {
         name: "Tags",
         nameForUrl: "tags",
         url: "/content/program/tags",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/tags*"]
       },
       {
         name: "Most Popular",
         nameForUrl: "most-popular",
         url: "/content/program/most-popular",
-        isActive: true,
+        isActive: false,
         permissionRels:["*"]
       }
     ]
@@ -55,7 +55,7 @@ export const MENUS_CONTENT:Menu[] = [
   {
     name: "Linear Channel",
     nameForUrl: "linear-channel",
-    icon: "icon-linear",
+    icon: "icon-tv",
     isActive: false,
     permissionRels:["/content/v1/linearChannels*","/content/v1/epgs*"],
     children: [
@@ -78,7 +78,7 @@ export const MENUS_CONTENT:Menu[] = [
   {
     name: "Schedule",
     nameForUrl: "schedule",
-    icon: "icon-schedule",
+    icon: "icon-cal",
     isActive: false,
     permissionRels:["*"],
     children: [
@@ -86,49 +86,49 @@ export const MENUS_CONTENT:Menu[] = [
         name: "Live Event",
         nameForUrl: "event",
         url: "/content/schedule/event",
-        isActive: true,
+        isActive: false,
         permissionRels:["*"]
       },
       {
         name: "Game Schedule",
         nameForUrl: "game",
         url: "/content/schedule/game",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/games*"]
       },
       {
         name: "Team",
         nameForUrl: "team",
         url: "/content/schedule/team",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/teams*"]
       },
       {
         name: "League",
         nameForUrl: "league",
         url: "/content/schedule/league",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/leagues*","/content/v1/divisions*","/content/v1/groups*"]
       },
       {
         name: "Sport",
         nameForUrl: "sport",
         url: "/content/schedule/sport",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/sports*"]
       },
       {
         name: "Game Type",
         nameForUrl: "game-type",
         url: "/content/schedule/game-type",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/gameTypes*"]
       },
       {
         name: "Game Pack",
         nameForUrl: "game-pack",
         url: "/content/schedule/game-pack",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/gamePacks*"]
       }
     ]
@@ -136,7 +136,7 @@ export const MENUS_CONTENT:Menu[] = [
   {
     name: "Application",
     nameForUrl: "application",
-    icon: "icon-application",
+    icon: "icon-app",
     isActive: false,
     permissionRels:["*"],
     children: [
@@ -144,35 +144,35 @@ export const MENUS_CONTENT:Menu[] = [
         name: "Site Navigation",
         nameForUrl: "site-navigation",
         url: "/content/application/site-navigation",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/navigations*"]
       },
       {
         name: "Dynamic Lead",
         nameForUrl: "dynamic-lead",
         url: "/content/application/dynamic-lead",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/dynamicLeads*"]
       },
       {
         name: "Ad Banners",
         nameForUrl: "ad-banners",
         url: "/content/application/ad-banners",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/adbanners*"]
       },
       {
         name: "Ticker",
         nameForUrl: "ticker",
         url: "/content/application/ticker",
-        isActive: true,
+        isActive: false,
         permissionRels:["/content/v1/tickers*"]
       },
       {
         name: "Poll",
         nameForUrl: "poll",
         url: "/content/application/poll",
-        isActive: true,
+        isActive: false,
         permissionRels:["*"]
       }
     ]
@@ -180,21 +180,21 @@ export const MENUS_CONTENT:Menu[] = [
   {
     name: "Syndication",
     nameForUrl: "syndication",
-    icon: "icon-syndication",
+    icon: "icon-earth",
     isActive: false,
     children: [
       {
         name: "Syndication Partners",
         nameForUrl: "partners",
         url: "/content/syndication/partners",
-        isActive: true,
+        isActive: false,
         permissionRels:["/admin/v1/partners*"]
       },
       {
         name: "Syndication Task",
         nameForUrl: "task",
         url: "/content/syndication/task",
-        isActive: true,
+        isActive: false,
         permissionRels:["*"]
       }
     ]

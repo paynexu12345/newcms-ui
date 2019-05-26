@@ -12,7 +12,9 @@ import {
         class="iconfont icon-logo"
         *ngIf="pageModeService.pageMode == PAGE_MODE_LARGE"
       ></span>
-      <span class="text" *ngIf="pageModeService.pageMode == PAGE_MODE_SMALL">CMS</span>
+      <span class="text" *ngIf="pageModeService.pageMode == PAGE_MODE_SMALL"
+        >CMS</span
+      >
     </a>
   `
 })

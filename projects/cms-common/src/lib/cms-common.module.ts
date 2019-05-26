@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
   SidebarMiniComponent,
   SidebarLargeComponent,
@@ -12,6 +13,7 @@ import {
   HeaderNavComponent,
   HeaderNavItemComponent
 } from "./components/header-nav";
+import { BreadcrumbComponent } from './components/breadcrumb';
 
 @NgModule({
   declarations: [
@@ -20,16 +22,18 @@ import {
     SidebarComponent,
     LogoComponent,
     HeaderNavComponent,
-    HeaderNavItemComponent
+    HeaderNavItemComponent,
+    BreadcrumbComponent
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,BrowserAnimationsModule],
   exports: [
     SidebarMiniComponent,
     SidebarLargeComponent,
     SidebarComponent,
     LogoComponent,
     HeaderNavComponent,
-    HeaderNavItemComponent
+    HeaderNavItemComponent,
+    BreadcrumbComponent
   ],
   providers: [PageModeService]
 })

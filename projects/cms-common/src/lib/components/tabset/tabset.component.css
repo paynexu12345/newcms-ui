@@ -1,0 +1,146 @@
+.cms-tab {
+  position: relative;
+  z-index: 10;
+}
+.view-PC{
+    display: block;
+  }
+
+.view-PC .cms-tab-nav {
+  position: relative;
+}
+
+.view-PC .cms-tab-nav > li > a {
+  
+  display: block;
+  font-size: 14px;
+}
+.view-PC .cms-tab-heading{
+  border-bottom: 1px solid #6C6E86;
+}
+.view-PC .cms-tab-wrapper{
+  position: relative;
+  height: 60px;
+  overflow: auto;
+  
+}
+.view-PC .flag{
+  height: 1px;
+  background-color: #3e49fb;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transition:all .3s ease-in-out;  
+  transition:all .3s ease-in-out;
+}
+/* 横向tabs */
+.nav-horizontal{
+  height: 60px;
+  white-space: nowrap;
+  position: absolute;
+}
+.nav-horizontal>li{
+  display: inline-block;
+  position: relative;
+  transition: background-color .3s;
+}
+.nav-horizontal>li:not(.active):hover{
+  background: #eee;
+}
+.nav-horizontal>li>a{
+  height: 60px;
+  line-height: 60px;
+  padding: 0 25px;
+  color: #4a4a4a;
+  display: block;
+  text-align: center;
+  font-family: 'OpenSans_SemiBold';
+  position: relative;
+
+}
+.nav-horizontal>li.active>a{
+  color: #3e49fb;
+  /* font-family: 'OpenSans_Bold'; */
+}
+
+/* 纵向tabs */
+.nav-vertical li > a{
+  display: block;
+  padding: 8px 12px;
+}
+.nav-vertical li:not(.active) > a {
+  color: #333;
+}
+.nav-vertical li:not(.active):hover > a {
+  background: #f5f5f5;
+}
+.nav-vertical li.active > a {
+  color: #3e49fb;
+}
+/* .view-ipad{
+    display: none;
+  } */
+.view-ipad .mask{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+.view-ipad .float-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #6C6E86;
+  z-index: 10;
+  overflow: hidden;
+}
+.view-ipad .active-option {
+  border-top: 1px solid #6C6E86;
+    border-bottom: 1px solid #6C6E86;
+    padding: 8px 12px;
+    font-family: OpenSans_SemiBold;
+    font-size: 16px;
+}
+.view-ipad .icon-close {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 20px auto;
+  font-size: 30px;
+  text-align: center;
+  line-height: 20px;
+  color: #999;
+}
+.view-ipad .caret {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  color: #3e49fb;
+  z-index: 5;
+}
+
+.disabled{
+  color: #999 !important;
+  background:#f5f5f5 !important;
+}
+
+:host /deep/ .cms-tab-content-pane{
+  display: none;
+}
+:host /deep/ .cms-tab-content-pane.active{
+  display: block;
+  -webkit-animation:fadeIn .6s ease-out;
+  animation:fadeIn .6s ease-out;
+}
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

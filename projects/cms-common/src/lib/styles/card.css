@@ -1,16 +1,24 @@
 .card {
   background: #ffffff;
   margin-bottom: 30px;
-  box-shadow: 0 0px 8px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
 }
 .card-header {
-  height: 50px;
-  line-height: 50px;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
   border-bottom: 1px solid #E5E9F5;
   padding: 0 25px;
-  font-size: 18px;
-  color: #292727;
+  font-size: 20px;
+  color: #464457;
+  font-family: Poppins_Medium
+}
+.card-header .r{
+  position: absolute;
+  right: 30px;
+  top: 0;
+  height: 60px;
 }
 .card-body {
   padding: 25px;

@@ -1,4 +1,4 @@
-import { Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
 import { _addEventListener, _removeEventListener } from "../../utils";
 import { checkIsPcSize } from "../../utils";
 @Injectable()

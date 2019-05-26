@@ -9,7 +9,6 @@ import {
 } from "../page-mode";
 @Component({
   selector: "sidebar",
-  styleUrls: ["./sidebar.component.css"],
   templateUrl: "./sidebar.component.html"
 })
 export class SidebarComponent implements OnInit {

@@ -1,0 +1,21 @@
+.breadcrumb {
+  position: relative;
+  padding: 30px 0 ;
+}
+.breadcrumb li {
+  display: inline-block;
+  color: #464457;
+  font-size: 16px;
+  font-family: Poppins_SemiBold;
+}
+.breadcrumb li a {
+  display: inline-block;
+}
+.breadcrumb li:before {
+  content: "\00a0>\00a0";
+  color: #444;
+  padding: 0 10px;
+}
+.breadcrumb li:first-child:before {
+  display: none;
+}

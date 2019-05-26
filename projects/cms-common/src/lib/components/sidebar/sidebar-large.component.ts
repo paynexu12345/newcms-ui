@@ -2,14 +2,12 @@ import { Component, OnInit, Input, ElementRef, Renderer } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Menu } from "./class";
 import "rxjs/add/operator/filter";
-import { slideDownFactory, fadeInFactory } from '../../animations';
-declare var $: any;
-let slideDown = slideDownFactory();
+import { slideDownFactory, fadeInFactory } from "../../animations";
+let slideDown = slideDownFactory("slideDown", ".1s ease-out");
 let fadeIn = fadeInFactory();
 @Component({
   animations: [fadeIn, slideDown],
   selector: "sidebar-large",
-  styleUrls: ["./sidebar-large.component.css"],
   templateUrl: "./sidebar-large.component.html"
 })
 export class SidebarLargeComponent implements OnInit {
@@ -37,7 +35,7 @@ export class SidebarLargeComponent implements OnInit {
   clickSecondMenu(e, targetMenu, secondMenu) {
     e.preventDefault();
     if (secondMenu.url) {
-      targetMenu.isActive = true;
+      // targetMenu.isActive = true;
       this.router.navigateByUrl(secondMenu.url);
     }
   }
