@@ -1,0 +1,13 @@
+<div class="page">
+  <cms-header [config]="config?.header"></cms-header>
+  <div class="main">
+    <sidebar
+      [menus]="config?.sidebar?.menus"
+    ></sidebar>
+    <div class="content" [ngStyle]="{ left: pageModeService.width }">
+      <div #content id="app-content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

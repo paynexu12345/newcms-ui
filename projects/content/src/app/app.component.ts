@@ -6,14 +6,6 @@ import {
   ActivatedRoute
 } from "@angular/router";
 import { Subscription } from 'rxjs';
-import { GlobalService } from 'project-shared/services/global.service';
-import { AuthService } from 'project-shared/services/security/auth.service';
-import { BaseService } from 'project-shared/services/base.service';
-import { SettingsAcquire } from 'project-shared/services/security/settings-acquire';
-import { CMSModule } from 'project-shared/cms-module';
-import { deepCopy } from 'projects/ngx-cms-common/src/lib/utils';
-import { Permission } from 'project-shared/services/content/permission.service';
-import { changePageTitle } from 'project-shared/utils/change-page-title';
 import { CMS_MENUS } from '../config';
 declare var $: any;
 @Component({
@@ -27,61 +19,61 @@ export class AppComponent implements OnInit {
   constructor(
     public router: Router,
     public acRouter: ActivatedRoute,
-    public globalService: GlobalService,
-    public authService: AuthService,
-    public baseService:BaseService,
-    public settingsAquire:SettingsAcquire
+    // public globalService: GlobalService,
+    // public authService: AuthService,
+    // public baseService:BaseService,
+    // public settingsAquire:SettingsAcquire
   ) {}
-  menus:CMSModule[] = deepCopy(CMS_MENUS);
+  // menus:CMSModule[] = deepCopy(CMS_MENUS);
   
-  showLoading_OnNavigationStart() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.globalService.loadingBarIsShow = true;
-      }
-    });
-  }
-  hideLoading_OnNavigationEnd() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.globalService.loadingBarIsShow = false;
-      }
-    });
-  }
-  hideMessage_OnNavigationEnd() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        if (this.globalService.messageRef) this.globalService.messageRef.hide();
-      }
-    });
-  }
-  intervalCheckTokenShouldRefresh(){
-    setInterval(()=>{
-      if(this.authService.checkTokenExpired()&&!this.authService.isRequestingRefreshToken){
-        if(this.authService.getPartnerFromStorage()){
-          this.authService.requestRefreshToken(this.authService.getPartnerFromStorage().partnerId,false);
-        }
-        else{
-          this.authService.requestRefreshToken("",false);
-        }
-      }
-    },1000)
-  }
+  // showLoading_OnNavigationStart() {
+  //   this.router.events.subscribe(event => {
+  //     if (event instanceof NavigationStart) {
+  //       this.globalService.loadingBarIsShow = true;
+  //     }
+  //   });
+  // }
+  // hideLoading_OnNavigationEnd() {
+  //   this.router.events.subscribe(event => {
+  //     if (event instanceof NavigationEnd) {
+  //       this.globalService.loadingBarIsShow = false;
+  //     }
+  //   });
+  // }
+  // hideMessage_OnNavigationEnd() {
+  //   this.router.events.subscribe(event => {
+  //     if (event instanceof NavigationEnd) {
+  //       if (this.globalService.messageRef) this.globalService.messageRef.hide();
+  //     }
+  //   });
+  // }
+  // intervalCheckTokenShouldRefresh(){
+  //   setInterval(()=>{
+  //     if(this.authService.checkTokenExpired()&&!this.authService.isRequestingRefreshToken){
+  //       if(this.authService.getPartnerFromStorage()){
+  //         this.authService.requestRefreshToken(this.authService.getPartnerFromStorage().partnerId,false);
+  //       }
+  //       else{
+  //         this.authService.requestRefreshToken("",false);
+  //       }
+  //     }
+  //   },1000)
+  // }
 
-  setLoggerLevel(){
-  }
-  subscribeSettingsAcquireSuccess(){
-    this.settingsAquire.reqSuccess.subscribe((res:Permission[])=>{
-      this.globalService.generateDynamicModules(res,this.menus)
-    })
-  }
+  // setLoggerLevel(){
+  // }
+  // subscribeSettingsAcquireSuccess(){
+  //   this.settingsAquire.reqSuccess.subscribe((res:Permission[])=>{
+  //     this.globalService.generateDynamicModules(res,this.menus)
+  //   })
+  // }
 
   ngOnInit() {
-    changePageTitle([]);
-    this.showLoading_OnNavigationStart();
-    this.hideLoading_OnNavigationEnd();
-    this.hideMessage_OnNavigationEnd();
-    this.setLoggerLevel();
-    this.subscribeSettingsAcquireSuccess();
+    // changePageTitle([]);
+    // this.showLoading_OnNavigationStart();
+    // this.hideLoading_OnNavigationEnd();
+    // this.hideMessage_OnNavigationEnd();
+    // this.setLoggerLevel();
+    // this.subscribeSettingsAcquireSuccess();
   }
 }

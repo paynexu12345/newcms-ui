@@ -1,0 +1,46 @@
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: #171724;
+}
+.header .logo {
+  float: left;
+  height: 80px;
+  padding: 20px 30px;
+  line-height: 40px;
+  color: #fff;
+  overflow: hidden;
+}
+.header .logo .iconfont {
+  font-size: 36px;
+}
+.header .logo .text {
+  font-size: 16px;
+}
+.header .nav{
+  height: 40px;
+  padding: 20px 0;
+  font-family: Poppins_Medium
+}
+.header .nav .item{
+  float: left;
+  display: block;
+  padding: 0 20px;
+  margin-right: 20px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  color: #6C6E86;
+  font-size: 14px;
+  text-decoration: none;
+}
+.header .nav .item:not(.actiive):hover{
+  background: rgba(255, 255, 255, 0.1)
+}
+.header .nav .item.active{
+  background: #3E49FB;
+  color: #fff;
+}

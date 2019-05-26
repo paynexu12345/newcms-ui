@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CmsCommonComponent } from './cms-common.component';
+import { Layout2Component } from './layout2.component';
 
-describe('CmsCommonComponent', () => {
-  let component: CmsCommonComponent;
-  let fixture: ComponentFixture<CmsCommonComponent>;
+describe('Layout2Component', () => {
+  let component: Layout2Component;
+  let fixture: ComponentFixture<Layout2Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CmsCommonComponent ]
+      declarations: [ Layout2Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CmsCommonComponent);
+    fixture = TestBed.createComponent(Layout2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
