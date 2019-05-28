@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Layout1Config } from '../layout/layout.class';
-import { generateActiveNavItem } from '../header/generateActiveNavItem';
+import { generateNavItemConfigs } from '../header/generateActiveNavItem';
 import { NAVITEM_ID_CONTENT } from 'src/app-config';
 import { MENUS_CONTENT } from 'projects/content/content.config';
-import { Breadcrumb } from 'projects/cms-common/src/lib/components/breadcrumb';
+import { Breadcrumb, BreadcrumbConfig } from 'projects/cms-common/src/lib/components/breadcrumb';
 import { PageModeService } from 'projects/cms-common/src/public-api';
 // import { CmsLayout1Config } from 'project-shared/layout/layout.class';
 // import { generateActiveNavItem } from 'project-shared/components/cms-header/cms-header-nav/generateActiveNavItem';
@@ -14,32 +14,38 @@ import { PageModeService } from 'projects/cms-common/src/public-api';
 
 @Component({
   selector: 'app-content-home',
-  templateUrl: './content-home.component.html'
+  templateUrl: './content-home.component.html',
+  styles:[`
+    
+  `]
 })
 export class ContentHomeComponent implements OnInit {
 
   constructor(public pageModeService:PageModeService) { }
-  breadcrumbConfig:Breadcrumb[] = [
-    {
-      name:"Content",
-      routerLink:"/content/home",
-      queryParams:{
-        param1:"hh",
-        param2:"gg"
+  breadcrumbConfig:BreadcrumbConfig = {
+    items:[
+      {
+        name:"Content",
+        routerLink:"/content/home",
+        queryParams:{
+          param1:"hh",
+          param2:"gg"
+        }
+      },
+      {
+        name:"Content"
       }
-    },
-    {
-      name:"Content"
-    }
-  ];
+    ]
+  };
   cmsLayout1Config:Layout1Config = {
     header: {
       nav: {
-        items: generateActiveNavItem(NAVITEM_ID_CONTENT)
+        itemConfigs: generateNavItemConfigs(NAVITEM_ID_CONTENT)
       }
     },
     sidebar: {
-      menus: MENUS_CONTENT
+      menus: MENUS_CONTENT,
+      cssClasses:["c1"]
     }
   }
   ngOnInit() {

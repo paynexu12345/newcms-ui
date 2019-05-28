@@ -2,7 +2,7 @@
   <cms-header [config]="config?.header"></cms-header>
   <div class="page-main">
     <sidebar
-      [menus]="config?.sidebar?.menus"
+      [config]="config?.sidebar"
     ></sidebar>
     <div class="content" [ngStyle]="{ left: pageModeService.width }">
       <div #content id="app-content">

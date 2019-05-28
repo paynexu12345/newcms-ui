@@ -11,16 +11,13 @@ import { Layout1Component } from './layout/layout1/layout1.component';
 import { Layout2Component } from './layout/layout2/layout2.component';
 import { HeaderComponent } from './header/header.component';
 import { CmsCommonModule } from 'projects/cms-common/src/public-api';
-import { EnterCheckComponent } from './enter-check/enter-check.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContentHomeComponent,
     Layout1Component,
-    Layout2Component,
-    EnterCheckComponent
+    Layout2Component
   ],
   imports: [
     BrowserModule,

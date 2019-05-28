@@ -1,10 +1,12 @@
 import { Component, Input } from "@angular/core";
-import { Breadcrumb } from "./class";
+import { BreadcrumbConfig, DEFAULT_BREADCRUMB_CONFIG } from "./class";
+import { commonInitCfg } from "../comp-utils";
+import { HasConfig } from "../interfaces";
 @Component({
   selector: "breadcrumb",
   template: `
-    <ol class="breadcrumb">
-      <li *ngFor="let breadCrumb of breadCrumbs; let i = index">
+    <ol [class]="rootCssClass">
+      <li *ngFor="let breadCrumb of config.items; let i = index">
         <a
           class="link"
           *ngIf="breadCrumb.routerLink"
@@ -12,13 +14,24 @@ import { Breadcrumb } from "./class";
           [queryParams]="breadCrumb?.queryParams"
           >{{ breadCrumb.name }}</a
         >
-        <ng-container *ngIf="!breadCrumb.routerLink">{{ breadCrumb.name }}</ng-container>
+        <ng-container *ngIf="!breadCrumb.routerLink">{{
+          breadCrumb.name
+        }}</ng-container>
       </li>
     </ol>
   `
 })
-export class BreadcrumbComponent {
+export class BreadcrumbComponent implements HasConfig {
   constructor() {}
-  @Input("config") breadCrumbs: Breadcrumb[] = [];
+  rootCssClass = "breadcrumb";
+  reservedCssClasses: string[] = [];
+  config: BreadcrumbConfig = DEFAULT_BREADCRUMB_CONFIG;
+  @Input("config")
+  set _config(val) {
+    commonInitCfg(this, val);
+  }
+  get _conifg() {
+    return this.config;
+  }
   ngOnInit() {}
 }

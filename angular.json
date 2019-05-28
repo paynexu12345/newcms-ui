@@ -156,6 +156,7 @@
               "projects/cms-common/src/lib/styles/base.css",
               "projects/cms-common/src/lib/styles/breadcrumb.css",
               "projects/cms-common/src/lib/styles/button.css",
+              "projects/cms-common/src/lib/styles/carousel.css",
               "projects/cms-common/src/lib/styles/dropdown.css",
               "projects/cms-common/src/lib/styles/card.css",
               "projects/cms-common/src/lib/styles/form.css",

@@ -6,8 +6,6 @@ import {
   ActivatedRoute
 } from "@angular/router";
 import { Subscription } from 'rxjs';
-import { CMS_MENUS } from '../config';
-declare var $: any;
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",

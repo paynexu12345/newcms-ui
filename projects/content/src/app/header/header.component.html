@@ -1,18 +1,20 @@
 <header class="header">
-    <logo ></logo>
-    <header-nav>
-        <header-nav-item *ngFor="let nav of config?.nav?.items" [config]="nav">Dashboard</header-nav-item>
-    </header-nav>
-    <div class="r">
-    </div>
-        <!-- <a href="javascript:;" class="iconfont icon-menu" (click)="pageModeService?.pageModeSwitch()" [class.show]="globalService.currentModule.menus?.length!=0">
+  <logo></logo>
+  <header-nav>
+    <header-nav-item
+      *ngFor="let itemCfg of config?.nav?.itemConfigs"
+      [config]="itemCfg"
+    ></header-nav-item>
+  </header-nav>
+  <div class="r"></div>
+  <!-- <a href="javascript:;" class="iconfont icon-menu" (click)="pageModeService?.pageModeSwitch()" [class.show]="globalService.currentModule.menus?.length!=0">
             <span class="sr-only">{{toggleMessage}}</span>
         </a> -->
-        <!-- <div class="dropdown-wrapper" [class.icon-menu-show]="globalService.currentModule.menus?.length!=0">
+  <!-- <div class="dropdown-wrapper" [class.icon-menu-show]="globalService.currentModule.menus?.length!=0">
              <cms-nav *ngIf="authService.isAdminUser" [options]="partners" [activeOption]="activePartner" (ev)="handlePartnerssChange($event)"></cms-nav>
              <cms-nav [options]= "navs" [activeOption]="globalService.currentHeaderNav" (ev)="handleModulesChange($event)"></cms-nav>
         </div>        -->
-    <!-- <div class="welcome">
+  <!-- <div class="welcome">
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="iconfont icon-account"></span>

@@ -1,10 +1,10 @@
-<div class="sidebar" [style.width]="pageModeService.width">
+<div [class]="rootCssClass" [style.width]="pageModeService.width">
   <sidebar-large
     *ngIf="pageModeService.pageMode == PAGE_MODE_LARGE"
-    [menus]="menus"
+    [menus]="config.menus"
   ></sidebar-large>
   <sidebar-mini
     *ngIf="pageModeService.pageMode == PAGE_MODE_SMALL"
-    [menus]="menus"
+    [menus]="config.menus"
   ></sidebar-mini>
 </div>

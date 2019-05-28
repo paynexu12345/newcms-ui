@@ -7,8 +7,6 @@ import { Routes, RouterModule } from '@angular/router';
 // import { SettingsAcquire } from 'project-shared/services/security/settings-acquire';
 // import { HomeComponent } from 'project-shared/components/home/home.component';
 import { ContentHomeComponent } from './content-home/content-home.component';
-import { EnterCheckComponent } from './enter-check/enter-check.component';
-
 const routes: Routes = [
   // {
   //   path: "login",
@@ -16,7 +14,6 @@ const routes: Routes = [
   // },
   {
     path:"",
-    component:EnterCheckComponent,
     // canActivate:[LoginCheck,PartnerCheck,SettingsAcquire],
     children:[
       {

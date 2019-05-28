@@ -1,42 +1,6 @@
-<div class="cms-tab">
-  <div class="view-PC" *ngIf="!isTouchScreenDevice">
-    <div class="cms-tab-heading">
-      <div class="cms-tab-wrapper">
-        <ul class="cms-tab-nav nav-horizontal">
-          <ng-container *ngFor="let tab of tabs">
-            <li *ngIf="!tab.hidden"  [class.active]="tab.active" (click)="clickTab(tab, li)" #li>
-              <a href="javascript:;" [class.disabled]="tab.disabled == 'disabled'">{{tab.heading}}</a>
-            </li>
-          </ng-container>
-        </ul>
-        <cms-tab-flag class="flag" [style.width]="tabFlag?.width" [style.transform]="'translateX('+tabFlag?.translateX+')'" ></cms-tab-flag>
-      </div>
-    </div>
-  </div>
-  <!-- html of touch-screen device Start-->
-  <div class="view-ipad" *ngIf="isTouchScreenDevice">
-    <div class="cms-tab-heading">
-      <span class="caret" [class.active]="isShow"></span>
-      <div class="active-option" (click)="clickActiveOpton()">
-        {{activeTab.heading}}
-      </div>
-    </div>
-    <div class="mask" [style.display]="isShow?'block':'none'" (click)="exitSelect()"></div>
-    <div *ngIf="isShow">
-      <div class="float-layer" [@slideDown]>
-        <ul class="cms-tab-nav nav-vertical" [@fadeInDown]>
-          <ng-container *ngFor="let tab of tabs">
-            <li *ngIf="!tab.hidden" [class.active]="tab.active" (click)="clickTab(tab,li)" #li>
-              <a href="javascript:;">{{tab.heading}}</a>
-            </li>
-          </ng-container>
-        </ul>
-        <a href="javascript:;" class="icon-close" (click)="iconCloseClick()">×</a>
-      </div>
-    </div>
-  </div>
-  <!-- html of touch-screen device END-->
-  <div class="cms-tab-content">
+<div [class]="rootCssClass">
+  <ul class="tab-nav">
     <ng-content></ng-content>
-  </div>
+  </ul>
+  <tab-flag></tab-flag>
 </div>

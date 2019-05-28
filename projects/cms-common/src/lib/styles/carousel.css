@@ -1,0 +1,14 @@
+.carousel{
+  position:relative;
+  overflow:hidden;
+}
+.carousel-item-container{
+  height:100%;
+  white-space:nowrap;
+  transform:translate3d(0,0,0);
+  transition:transform .2s ease-out;
+}
+.carousel-item{
+  display:inline-block;
+  height:100%;
+}

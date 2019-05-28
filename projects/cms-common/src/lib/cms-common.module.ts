@@ -14,6 +14,11 @@ import {
   HeaderNavItemComponent
 } from "./components/header-nav";
 import { BreadcrumbComponent } from './components/breadcrumb';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CarouselItemComponent } from './components/carousel/carousel-item/carousel-item.component';
+import { TabsetComponent } from './components/tabset/tabset.component';
+import { TabItemComponent } from './components/tabset/tab-item/tab-item.component';
+import { TabFlagComponent } from './components/tabset/tab-flag/tab-flag.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { BreadcrumbComponent } from './components/breadcrumb';
     LogoComponent,
     HeaderNavComponent,
     HeaderNavItemComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CarouselComponent,
+    CarouselItemComponent,
+    TabsetComponent,
+    TabItemComponent,
+    TabFlagComponent
   ],
   imports: [CommonModule, RouterModule,BrowserAnimationsModule],
   exports: [
@@ -33,7 +43,12 @@ import { BreadcrumbComponent } from './components/breadcrumb';
     LogoComponent,
     HeaderNavComponent,
     HeaderNavItemComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    CarouselComponent,
+    CarouselItemComponent,
+    TabsetComponent,
+    TabItemComponent,
+    TabFlagComponent
   ],
   providers: [PageModeService]
 })

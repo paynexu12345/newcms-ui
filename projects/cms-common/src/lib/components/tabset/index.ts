@@ -1,3 +1,3 @@
-export * from "./flag.directive";
-export * from "./tab.directive";
 export * from "./tabset.component";
+export * from "./tab-item/tab-item.component";
+export * from "./class";

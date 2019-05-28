@@ -1,3 +1,4 @@
+import { CustomizeClassNames } from '../interfaces';
 
 export class Menu {
   id?:number;
@@ -27,6 +28,11 @@ export class Menu {
   children?: Menu[];
   permissionRels?:string[];
 }
-export class SideBarConfig{
-  menus:Menu[]
+export class SideBarConfig implements CustomizeClassNames{
+  menus:Menu[];
+  cssClasses?:string[];
+}
+export const DEFAULT_SIDEBAR_CONFIG:SideBarConfig = {
+  menus:[],
+  cssClasses:[]
 }

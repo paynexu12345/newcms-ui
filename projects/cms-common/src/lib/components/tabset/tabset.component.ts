@@ -1,105 +1,34 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  TemplateRef,
-  ChangeDetectorRef
-} from "@angular/core";
-import { TabFlagDirective } from "./flag.directive";
-import { slideDownFactory, fadeInDownFactory } from "../../animations";
-import { checkIsTouchScreenDevice } from '../../utils';
-import { TabDirective } from './tab.directive';
+import { Component, OnInit, Input } from "@angular/core";
+import { ContainerComponent, HasConfig } from "../interfaces";
+import { TabItemComponent } from "./tab-item/tab-item.component";
+import { TabConfig, DEFAULT_TAB_CONFIG } from "./class";
+import { TabFlagComponent } from "./tab-flag/tab-flag.component";
+import { commonInitCfg, applyMixins } from "../comp-utils";
 
-let slideDown = slideDownFactory();
-let fadeInDown = fadeInDownFactory(
-  "fadeInDown",
-  ".3s .4s ease-in-out",
-  "-50px"
-);
 @Component({
   selector: "tabset",
   templateUrl: "./tabset.component.html",
-  styleUrls: ["./tabset.component.css"],
-  animations: [slideDown, fadeInDown]
+  styleUrls: ["./tabset.component.css"]
 })
-export class TabSetComponent {
-  constructor(public erf: ElementRef, public cdr: ChangeDetectorRef) {}
-  tabs: TabDirective[] = [];
-  activeTab: TabDirective;
-  tabFlag: TabFlagDirective;
-  templateRef: TemplateRef<any>;
-  isShow = false;
-  isTouchScreenDevice = checkIsTouchScreenDevice();
-  resizeFlag;
-  
-  addTab(tab: TabDirective) {
-    this.tabs.push(tab);
+export class TabsetComponent
+  implements OnInit, ContainerComponent<TabItemComponent>, HasConfig {
+  constructor() {}
+  childComps: TabItemComponent[] = [];
+  flagComp: TabFlagComponent;
+  rootCssClass = "tab";
+  reservedCssClasses: string[] = [];
+  config: TabConfig = DEFAULT_TAB_CONFIG;
+  @Input("config")
+  set _config(val) {
+    commonInitCfg(this, val);
   }
-  creatFlag(tabFlag: TabFlagDirective) {
-    this.tabFlag = tabFlag;
-  }
-  clickTab(tab:TabDirective, htmlElement) {
-    if(tab.disabled != 'disabled'){
-      this.tabs.forEach(ele => {
-        if (ele == tab) {
-          ele.active = true;
-          ele.onactivate.emit("activate");
-          this.activeTab = ele;
-        } else {
-          if (ele.active == true) {
-            if (typeof ele.onLeave == "function") {
-              ele.onLeave();
-            }
-          }
-          ele.active = false;
-        }
-      });
-      this.isShow = false;
-      if (this.tabFlag) {
-        this.tabFlag.width = htmlElement.offsetWidth + "px";
-        this.tabFlag.translateX = htmlElement.offsetLeft + "px";
-      }
-    }
-    else{
-      tab.disabledClick.emit("disabled")
-    }
-  }
-  exitSelect() {
-    this.isShow = false;
-  }
-  clickActiveOpton() {
-    this.isShow = true;
-  }
-  iconCloseClick() {
-    this.exitSelect();
-  }
-  initTabFlagStyle() {
-    if (this.isTouchScreenDevice) {
-      this.tabFlag = null;
-    } else {
-      let activeTabHtmlElement = this.erf.nativeElement.querySelector(
-        "li.active"
-      );
-      if (this.tabFlag && activeTabHtmlElement) {
-        this.tabFlag.width = activeTabHtmlElement.offsetWidth + "px";
-        this.tabFlag.translateX = activeTabHtmlElement.offsetLeft + "px";
-      }
-      this.cdr.detectChanges();
-    }
-  }
-  
-  @HostListener("window:resize")
-  resize() {
-    clearTimeout(this.resizeFlag);
-    this.resizeFlag = setTimeout(() => {
-      this.isTouchScreenDevice = checkIsTouchScreenDevice();
-      this.initTabFlagStyle();
-    }, 200);
-  }
+  addChildComp: (comp: TabItemComponent) => void;
+  removeChildComp: (comp: TabItemComponent) => void;
+
   ngOnInit() {
-    this.activeTab = this.tabs[0];
-  }
-  ngAfterViewInit() {
-    this.initTabFlagStyle();
+    setTimeout(() => {
+      this.childComps[this.config.activeIndex].activate();
+    }, 100);
   }
 }
+applyMixins(TabsetComponent, [ContainerComponent]);
